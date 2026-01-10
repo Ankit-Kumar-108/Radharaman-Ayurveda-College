@@ -31,7 +31,10 @@ export default async function AdminLayout({
                             Students
                         </Link>
                         <Link href="/admin/notices" className="block rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700">
-                            Notices & News
+                            Notices
+                        </Link>
+                        <Link href="/admin/newsevent" className="block rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700">
+                            News & Events
                         </Link>
                     </div>
 
