@@ -4,7 +4,7 @@ import Image from "next/image";
 import CreateTeacherPage from "./create/createTeacher";
 import DeleteTeacherProfile from "./delete/deleteTeacherProfile";
 
-export default async function () {
+export default async function TeachersPage() {
     const teachers = await GetTeacher() || []
     return (
         <div className="container mx-auto px-4 py-8 bg-[#d9efd0]">
@@ -67,11 +67,11 @@ export default async function () {
                                         <span>{teacher.aadharNo}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <span className="font-medium">Father's Name:</span>
+                                        <span className="font-medium">Father&apos;s Name:</span>
                                         <span>{teacher.fatherName}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <span className="font-medium">Mother's Name:</span>
+                                        <span className="font-medium">Mother&apos;s Name:</span>
                                         <span>{teacher.motherName}</span>
                                     </div>
                                     <div className="flex items-center gap-2">

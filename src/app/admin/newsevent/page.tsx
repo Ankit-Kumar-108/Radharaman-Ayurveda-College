@@ -18,10 +18,6 @@ export default function NewsEventManagement() {
     const [loading, setLoading] = useState(true)
     const [isCreating, setIsCreating] = useState(false)
 
-    useEffect(() => {
-        fetchEvents()
-    }, [])
-
     async function fetchEvents() {
         setLoading(true)
         const result = await getNewsEvents()
@@ -30,6 +26,10 @@ export default function NewsEventManagement() {
         }
         setLoading(false)
     }
+
+    useEffect(() => {
+        fetchEvents()
+    }, [])
 
     async function handleCreate(formData: FormData) {
         setIsCreating(true)

@@ -8,6 +8,7 @@ export default function Body() {
             duration: 800,
             once: true,
             offset: 50,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             easing: "cubic-bezier(0.68, -0.55, 0.27, 1.55)" as any,
         });
     }, []);
@@ -101,7 +102,7 @@ export default function Body() {
                                 </div>
                                 <div className="para">
                                     <h4>
-                                        Principal's Desk
+                                        Principal&apos;s Desk
                                     </h4>
                                     <p data-aos="fade-up" data-aos-delay="50">
                                         Let me welcome you to our fold! Radharaman Ayurved Medical College Research Hospital, Bhopal is one of the reputed private Ayurvedic institution of Radharaman Group, Affiliated to Madhya Pradesh Medical Science University, Jabalpur. Our institution’s main objective is to deliver highest standard of education in the field of Ayurveda and as value added knowledge of yoga and integrative medicine. Our college is attached with 100 bedded hospitals with a complementary approach of Ayurveda and modern medicine. </p>
@@ -125,7 +126,7 @@ export default function Body() {
                                     <div className="parag">
                                         <h4>World Breastfeeding Week 2025</h4>
                                         <p>On the occasion of World Breastfeeding Week 2025, Radharaman Institute of Nursing,
-                                            Bhopal's B.Sc. Nursing and GNM</p>
+                                            Bhopal&apos;s B.Sc. Nursing and GNM</p>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +139,7 @@ export default function Body() {
                                         <h4>
                                             Tree plantation programme
                                         </h4>
-                                        <p>Tree plantation programme concluded at Radharaman Ayurveda College campus, MY FM's RJ
+                                        <p>Tree plantation programme concluded at Radharaman Ayurveda College campus, MY FM&apos;s RJ
                                             Geet
                                             was present.</p>
                                     </div>

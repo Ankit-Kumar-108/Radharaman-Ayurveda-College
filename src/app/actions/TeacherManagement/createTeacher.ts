@@ -62,7 +62,7 @@ export async function CreateTeacher(formData: FormData) {
                 photo: publicUrl,
             }
         })
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.log("Error Creating Teacher Profile", error)
     }
     revalidatePath("/admin/teacher")

@@ -1,0 +1,96 @@
+﻿
+> ramcrh@0.1.0 lint
+> eslint --no-color
+
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\actions\TeacherManagement\createTeacher.ts
+  65:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\actions\TeacherManagement\deleteTeacher.ts
+  14:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\actions\TeacherManagement\teacher.ts
+  12:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\newsevent\page.tsx
+  22:9   error    Error: Cannot access variable before it is declared
+
+`fetchEvents` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\newsevent\page.tsx:22:9
+  20 |
+  21 |     useEffect(() => {
+> 22 |         fetchEvents()
+     |         ^^^^^^^^^^^ `fetchEvents` accessed before it is declared
+  23 |     }, [])
+  24 |
+  25 |     async function fetchEvents() {
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\newsevent\page.tsx:25:5
+  23 |     }, [])
+  24 |
+> 25 |     async function fetchEvents() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 26 |         setLoading(true)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 27 |         const result = await getNewsEvents()
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 28 |         if (result.success && result.data) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 29 |             setEvents(result.data)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |         setLoading(false)
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |     }
+     | ^^^^^^ `fetchEvents` is declared here
+  33 |
+  34 |     async function handleCreate(formData: FormData) {
+  35 |         setIsCreating(true)  react-hooks/immutability
+  95:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @next/next/no-img-element
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\teachers\create\createTeacher.tsx
+  36:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  41:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\teachers\delete\deleteTeacherProfile.tsx
+  13:19  warning  'result' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  15:25  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\app\admin\teachers\page.tsx
+   7:1   warning  Unexpected default export of anonymous function                  import/no-anonymous-default-export
+   7:16  error    Component definition is missing display name                     react/display-name
+  70:77  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  74:77  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\components\body\body.tsx
+   11:64   error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   82:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  100:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  104:50   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  124:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  128:51   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  136:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  141:124  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  151:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  163:37   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\components\footer\footer.tsx
+   9:25   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  15:118  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  17:106  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  20:59   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  23:75   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  48:68   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\components\navbar\navbar.tsx
+   2:10  warning  'useEffect' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  21:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  41:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\91953\OneDrive\Desktop\Full-Stack\NextJS Projects\Radharaman Ayurveda College\src\utils\supabase\server.ts
+  20:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 33 problems (15 errors, 18 warnings)
+

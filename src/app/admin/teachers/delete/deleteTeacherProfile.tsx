@@ -12,7 +12,7 @@ export default function DeleteTeacherProfile({ id }: DeleteTeacherProp) {
             if (!confirm('Are you sure you want to delete this event?')) return
             const result = await DeleteTeacher(id)
             toast.success("Teacher Profile Deleted")
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.log("error deleting teacher profile", error)
             toast.error("Error Deleting Teacher Profile")
         }
