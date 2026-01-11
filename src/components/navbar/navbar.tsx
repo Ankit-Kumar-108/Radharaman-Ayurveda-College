@@ -1,19 +1,9 @@
-import Aos from "aos";
-import "aos/dist/aos.css";
-import "../../app/landing.css";
+"use client"
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useEffect(() => {
-        Aos.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-            easing: "cubic-bezier(0.68, -0.55, 0.27, 1.55)" as any,
-        });
-    }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -28,19 +18,19 @@ export default function Navbar() {
             <header>
                 <nav>
                     <div className="header">
-                        <img src="ASSETS/logo.png" alt="Radharaman College Logo" />
+                        <img src="/ASSETS/logo.png" alt="Radharaman College Logo" />
                     </div>
                     <div className="links">
-                        <a className="w-[80px]" href="#About">About
-                            
+                        <a className="w-20" href="#About">About
+
                         </a>
-                        <a className="w-[90px]" href="#College">College</a>
-                        <a className="w-[100px]" href="#Hospital">Hospital</a>
-                        <a className="w-[85px]" href="#Faculty">Faculty</a>
-                        <a className="w-[80px]" href="#Detail">Detail</a>
-                        <a className="w-[80px]" href="#Events">Event</a>
-                        <a className="w-[110px]" href="#Contact Us">Contact Us</a>
-                        <button>LOGIN</button>{" "}
+                        <a className="w-22.5" href="#College">College</a>
+                        <a className="w-25" href="#Hospital">Hospital</a>
+                        <a className="w-21.25" href="/faculty">Faculty</a>
+                        <a className="w-20" href="#Detail">Detail</a>
+                        <a className="w-20" href="#Events">Event</a>
+                        <a className="w-27.5" href="#Contact Us">Contact Us</a>
+                        <button>LOGIN</button>
                     </div>
                     <button
                         className="hamburger"
@@ -49,7 +39,7 @@ export default function Navbar() {
                         onClick={toggleMenu}
                     >
                         <img
-                            src="ASSETS/burger-menu-right-svgrepo-com.svg"
+                            src="/ASSETS/burger-menu-right-svgrepo-com.svg"
                             alt="Open menu"
                             height="30px"
                             width="30px"

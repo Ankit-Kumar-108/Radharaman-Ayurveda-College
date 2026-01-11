@@ -11,7 +11,7 @@ export async function deleteNotice(id: number) {
             },
         })
 
-        revalidatePath('/admin/notices')
+        revalidatePath('/admin/notice')
         revalidatePath('/notice')
         return { success: true }
     } catch (error) {

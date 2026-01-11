@@ -80,7 +80,7 @@ nav {
 .links a::after{
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -12;
     left: 0;
     width: 100%;
     height: 3px;

@@ -21,7 +21,7 @@ export async function createNotice(formData: FormData) {
             },
         })
 
-        revalidatePath('/admin/notices')
+        revalidatePath('/admin/notice')
         revalidatePath('/notice')
         return { success: true }
     } catch (error) {
