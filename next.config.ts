@@ -4,9 +4,10 @@ const nextConfig: NextConfig = {
   // 1. Experimental Features
   experimental: {
     serverActions: {
-      bodySizeLimit: '10mb', 
+      bodySizeLimit: '10mb',
     },
   },
+
 
   // 2. Webpack Config (CRITICAL for PDF support)
   webpack: (config) => {
