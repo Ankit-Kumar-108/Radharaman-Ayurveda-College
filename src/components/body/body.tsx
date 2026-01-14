@@ -148,7 +148,7 @@ export default function Body() {
                                 </div>
                                 <div className="para2">
                                     <h4 data-aos="fade-up">Radharaman Ayurveda Medical College Research Hospital</h4>
-                                    <p data-aos="fade-up" data-aos-delay="200">The group is well known for innovation and academic excellence...</p>
+                                    <p data-aos="fade-up" data-aos-delay="200">The group is well known for innovation and academic excellence. RGI combines best of both the worlds. Here the technology, individuality & independence of the west are blended in right proportion with the culture, traditions & sensitivity of the east. The success story of Radharaman Group of Institutes begins in the year 2003 when the Typasya Education Society launched its first Medical College i.e.Radharaman Ayurveda Medical College Research Hospital </p>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,10 @@ export default function Body() {
                                 </div>
                                 <div className="para">
                                     <h4>Principal's Desk</h4>
-                                    <p data-aos="fade-up" data-aos-delay="50">Let me welcome you to our fold! Radharaman Ayurved Medical College Research Hospital...</p>
+                                    <p data-aos="fade-up" data-aos-delay="50">Let me welcome you to our fold! Radharaman Ayurved Medical College Research Hospital, Bhopal is one of the reputed private Ayurvedic institution of Radharaman Group, Affiliated to Madhya Pradesh Medical Science University, Jabalpur. Our institution’s main objective is to deliver highest standard of education in the field of Ayurveda and as value added knowledge of yoga and integrative medicine. Our college is attached with 100 bedded hospitals with a complementary approach of Ayurveda and modern medicine.</p>
+                                    <p data-aos="fade-up" data-aos-delay="100">
+                                        The real strength of the Institute is highly qualified, experienced and dedicated teachers with supporting technical and excellent staff, best available infrastructure and well-behaved students. I invite the aspiring students and their parents to get started today by our campus to select the best of the educational options. I wish you all the best! 
+                                    </p>
                                     <h6><b>Dr. (Prof.) Bhupendra Kumar Mishra</b></h6>
                                 </div>
                             </div>
@@ -201,7 +204,7 @@ export default function Body() {
                                     </div>
                                 )}
                                 <div className="flex justify-between items-start">
-                                    <h3 className="font-bold text-xs p-0" style={{fontSize:"18px"}}>{notice.title}</h3>
+                                    <h3 className="font-bold text-xs p-0" style={{fontSize:"18px", padding:"0px"}}>{notice.title}</h3>
                                     <span className="text-xs text-black bg-gray-100 rounded whitespace-nowrap">
                                         {new Date(notice.createdAt).toLocaleDateString()}
                                     </span>

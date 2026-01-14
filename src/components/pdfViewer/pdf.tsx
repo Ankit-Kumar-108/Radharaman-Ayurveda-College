@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
-// CHECK THIS LINE CAREFULLY:
-// It must say '3.11.174' (NOT 'pdfjs.version' or any other number)
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`;
+// Configure worker to use the specific version 4.4.168 (compatible with react-pdf 9.1.1)
+if (typeof window !== 'undefined' && pdfjs.GlobalWorkerOptions) {
+  pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs`;
+}
 
 export default function PdfThumbnail({ url }: { url: string }) {
   const [numPages, setNumPages] = useState<number>(0);
@@ -23,11 +24,11 @@ export default function PdfThumbnail({ url }: { url: string }) {
         error={<div className="text-xs text-red-400">PDF Error</div>}
         className="flex justify-center items-center"
       >
-        <Page 
-          pageNumber={1} 
-          width={300} 
-          renderTextLayer={false} 
-          renderAnnotationLayer={false} 
+        <Page
+          pageNumber={1}
+          width={300}
+          renderTextLayer={false}
+          renderAnnotationLayer={false}
         />
       </Document>
     </div>

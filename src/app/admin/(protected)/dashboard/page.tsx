@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import Link from 'next/link'
 
 export default async function AdminDashboard() {
     const studentCount = await prisma.student.count()
@@ -9,7 +10,6 @@ export default async function AdminDashboard() {
     return (
         <div>
             <h2 className="mb-6 text-3xl font-bold">Dashboard</h2>
-
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 {/* Teacher Stats */}
                 <div className="rounded-lg bg-white p-6">

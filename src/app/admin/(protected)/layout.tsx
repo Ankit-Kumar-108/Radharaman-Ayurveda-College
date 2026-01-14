@@ -24,6 +24,9 @@ export default async function AdminLayout({
                 </div>
                 <nav className="mt-6 px-4">
                     <div className="space-y-2">
+                        <Link href="/" className="block rounded-lg px-4 py-2 text-green-300 hover:bg-white/10">
+                            Back to Home
+                        </Link>
                         <Link href="/admin/dashboard" className="block rounded-lg px-4 py-2 text-green-300 hover:bg-white/10">
                             Dashboard
                         </Link>
@@ -41,9 +44,9 @@ export default async function AdminLayout({
                         </Link>
                     </div>
 
-                    <div className="mt-10 border-t pt-4 border-blue-500">
+                    <div className="mt-10 border-t pt-4 border-blue-500 fixed bottom-50 w-50  h-fit">
                         <form action={logoutAdmin}>
-                            <button type="submit" className="w-full rounded-lg px-4 py-2 text-left text-red-600 hover:bg-red-50/10 ">
+                            <button type="submit" className="w-full rounded-lg px-6 py-2 text-left text-red-600 hover:bg-red-50/10 ">
                                 Logout
                             </button>
                         </form>

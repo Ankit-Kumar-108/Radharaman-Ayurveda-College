@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
@@ -20,13 +20,13 @@
     "bcrypt": "^6.0.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
-    "pdfjs-dist": "^5.4.530",
+    "pdfjs-dist": "4.4.168",
     "pg": "^8.16.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hot-toast": "^2.6.0",
     "prisma": "^7.2.0",
-    "react-pdf": "^10.3.0"
+    "react-pdf": "9.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

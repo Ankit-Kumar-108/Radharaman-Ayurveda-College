@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   // 2. Webpack Config (CRITICAL for PDF support)
   webpack: (config) => {
     config.resolve.alias.canvas = false;
+    // Force pdfjs-dist to resolve to the root node_modules to fix hoisting issues
+    config.resolve.alias['pdfjs-dist'] = require('path').resolve(__dirname, 'node_modules/pdfjs-dist');
     return config;
   },
 
