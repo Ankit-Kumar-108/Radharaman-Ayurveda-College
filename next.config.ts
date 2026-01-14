@@ -1,13 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // 1. Experimental Features
   experimental: {
     serverActions: {
-      // Increase this to what you need (e.g., '5mb', '10mb', '50mb')
       bodySizeLimit: '10mb', 
     },
   },
+
+  // 2. Webpack Config (CRITICAL for PDF support)
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    return config;
+  },
+
+  // 3. Image Configuration
   images: {
     remotePatterns: [
       {
@@ -18,7 +25,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  reactCompiler: true,
 };
 
 export default nextConfig;
