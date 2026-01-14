@@ -2,16 +2,14 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Scoped to prevent affecting Admin Panel */
-.landing-scope {
-    /* background-color: rgb(255, 255, 255);  <-- REMOVED to fix video visibility */
+body {
+    background-color: rgb(255, 255, 255);
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    width: 100%;
 }
 
-.landing-scope header {
+header {
     width: 100%;
     height: 60px;
     background-color: white;
@@ -27,7 +25,7 @@ html {
     z-index: 2;
 }
 
-.landing-scope nav {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,10 +77,10 @@ html {
     position: relative;
 }
 
-.links a::after {
+.links a::after{
     content: "";
     position: absolute;
-    bottom: -11px;
+    bottom: -12px;
     left: 0;
     width: 100%;
     height: 3px;
@@ -92,7 +90,7 @@ html {
     transition: transform 0.4s ease;
 }
 
-.links a:hover::after {
+.links a:hover::after{
     transform: scaleX(1);
 }
 
@@ -105,29 +103,27 @@ html {
 }
 
 /* Mobile menu (hidden by default). Visible when .open is added. */
-.menuISclicked {
+.menuISclicked{
     position: absolute;
-    top: 64px;
-    /* just under header */
+    top: 64px; /* just under header */
     right: 16px;
     width: 260px;
     max-width: calc(100% - 40px);
     background: #ffffff;
     color: #012301;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     padding: 12px 12px 18px 12px;
-    display: none;
-    /* hidden by default */
+    display: none; /* hidden by default */
     z-index: 9999;
 }
 
-.menuISclicked.open {
+.menuISclicked.open{
     display: block;
-    animation: menu-pop 180ms cubic-bezier(.2, .8, .2, 1);
+    animation: menu-pop 180ms cubic-bezier(.2,.8,.2,1);
 }
 
-.menuISclicked .menu-close {
+.menuISclicked .menu-close{
     background: none;
     border: none;
     font-size: 18px;
@@ -136,7 +132,7 @@ html {
     cursor: pointer;
 }
 
-.menuISclicked .mobile-menu {
+.menuISclicked .mobile-menu{
     list-style: none;
     margin: 12px 0 0 0;
     padding: 0;
@@ -145,30 +141,23 @@ html {
     gap: 8px;
 }
 
-.menuISclicked .mobile-menu a {
+.menuISclicked .mobile-menu a{
     text-decoration: none;
     color: #012301;
     padding: 8px 10px;
     border-radius: 8px;
 }
 
-.menuISclicked .mobile-menu a:hover {
+.menuISclicked .mobile-menu a:hover{
     background: #f1f7f1;
 }
 
-@keyframes menu-pop {
-    from {
-        transform: translateY(-6px) scale(.98);
-        opacity: 0
-    }
-
-    to {
-        transform: translateY(0) scale(1);
-        opacity: 1
-    }
+@keyframes menu-pop{
+    from{ transform: translateY(-6px) scale(.98); opacity: 0 }
+    to{ transform: translateY(0) scale(1); opacity: 1 }
 }
 
-.landing-scope .video-body {
+.video-body {
     position: relative;
     height: 601px;
     overflow: hidden;
@@ -178,7 +167,7 @@ html {
     justify-content: center;
 }
 
-.landing-scope .video-body video {
+.video-body video {
     position: absolute;
     top: 0;
     left: 0;
@@ -188,7 +177,7 @@ html {
     z-index: -2;
 }
 
-.landing-scope .opacity {
+.opacity {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -198,7 +187,7 @@ html {
     z-index: -1;
 }
 
-.landing-scope .text {
+.text {
     position: absolute;
     display: flex;
     align-items: center;
@@ -210,9 +199,10 @@ html {
     background-color: transparent;
     flex-direction: column;
     top: 0;
+
 }
 
-.landing-scope h1 {
+h1 {
     font-size: 50px;
 }
 

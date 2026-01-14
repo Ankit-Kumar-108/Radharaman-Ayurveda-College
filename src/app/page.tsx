@@ -4,10 +4,10 @@ import Body from "../components/body/body";
 import Footer from "../components/footer/footer";
 export default function Home() {
   return (
-    <>
+    <div className="landing-scope">
       <Navbar />
       <Body />
       <Footer />
-    </>
+    </div>
   );
 }

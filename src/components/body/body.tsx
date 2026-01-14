@@ -5,7 +5,7 @@ import "aos/dist/aos.css"
 import "../../app/landing.css"
 import { useEffect, useState } from "react"
 // 1. IMPORT DYNAMIC TO FIX "CANVAS" ERROR
-import dynamic from 'next/dynamic' 
+import dynamic from 'next/dynamic'
 import { getNewsEvents } from "@/app/actions/NewsEventManagement/newsevent"
 import { getNotices } from "@/app/actions/NoticeManagement/notice"
 import { deleteNotice } from "@/app/actions/NoticeManagement/deleteNotice"
@@ -22,7 +22,7 @@ interface NewsEvent {
     title: string
     content: string
     imageUrl: string
-    createdAt: Date 
+    createdAt: Date
 }
 
 interface Notice {
@@ -35,9 +35,9 @@ interface Notice {
 export default function Body() {
     const [Data, setData] = useState<NewsEvent[]>([])
     const [Notice, setNotice] = useState<Notice[]>([])
-    
+
     // State for Full Screen Modal
-    const [selectedFile, setSelectedFile] = useState<{url: string, type: 'img' | 'pdf'} | null>(null)
+    const [selectedFile, setSelectedFile] = useState<{ url: string, type: 'img' | 'pdf' } | null>(null)
 
     useEffect(() => {
         Aos.init({
@@ -46,13 +46,13 @@ export default function Body() {
             offset: 50,
             easing: "cubic-bezier(0.68, -0.55, 0.27, 1.55)" as any,
         });
-    }, []);   
+    }, []);
 
     // --- FETCH DATA ---
-    useEffect(()=>{
-        const FetchNotice = async () =>{
+    useEffect(() => {
+        const FetchNotice = async () => {
             const notice = await getNotices()
-            if(notice.success && notice.data){
+            if (notice.success && notice.data) {
                 setNotice(notice.data)
             }
         }
@@ -67,8 +67,8 @@ export default function Body() {
             }
         }
         fetchData()
-    }, [])  
-    
+    }, [])
+
     // --- HANDLERS ---
     async function handleDelete(id: number) {
         if (!confirm('Are you sure you want to delete this notice?')) return
@@ -88,13 +88,13 @@ export default function Body() {
             type: isPdf(url) ? 'pdf' : 'img'
         })
     }
-    
+
     return (
-        <>
+        <div>
             {/* --- FULL SCREEN PREVIEW MODAL --- */}
             {selectedFile && (
                 <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-                    <button 
+                    <button
                         onClick={() => setSelectedFile(null)}
                         className="absolute top-6 right-6 text-white bg-red-600 hover:bg-red-700 p-2 rounded-full shadow-lg z-10000 transition-transform hover:scale-110"
                     >
@@ -163,7 +163,7 @@ export default function Body() {
                                     <h4>Principal's Desk</h4>
                                     <p data-aos="fade-up" data-aos-delay="50">Let me welcome you to our fold! Radharaman Ayurved Medical College Research Hospital, Bhopal is one of the reputed private Ayurvedic institution of Radharaman Group, Affiliated to Madhya Pradesh Medical Science University, Jabalpur. Our institution’s main objective is to deliver highest standard of education in the field of Ayurveda and as value added knowledge of yoga and integrative medicine. Our college is attached with 100 bedded hospitals with a complementary approach of Ayurveda and modern medicine.</p>
                                     <p data-aos="fade-up" data-aos-delay="100">
-                                        The real strength of the Institute is highly qualified, experienced and dedicated teachers with supporting technical and excellent staff, best available infrastructure and well-behaved students. I invite the aspiring students and their parents to get started today by our campus to select the best of the educational options. I wish you all the best! 
+                                        The real strength of the Institute is highly qualified, experienced and dedicated teachers with supporting technical and excellent staff, best available infrastructure and well-behaved students. I invite the aspiring students and their parents to get started today by our campus to select the best of the educational options. I wish you all the best!
                                     </p>
                                     <h6><b>Dr. (Prof.) Bhupendra Kumar Mishra</b></h6>
                                 </div>
@@ -175,24 +175,24 @@ export default function Body() {
                 {/* --- NOTICES SECTION --- */}
                 <section className="update" id="Events">
                     <h3 data-aos="fade-up">Notices</h3>
-                    
+
                     {/* Grid Container for Notices */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-12 mb-10 w-full">
                         {Notice.map((notice) => (
-                            <div key={notice.id} className="rounded-xl bg-white p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col ">
+                            <div key={notice.id} data-aos="fade-up" data-aos-delay="50" className="rounded-xl bg-white p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col ">
 
                                 {notice.imageUrl && (
-                                    <div 
+                                    <div
                                         onClick={() => openFullScreen(notice.imageUrl)}
                                         className="relative h-auto min-h-64 w-full overflow-hidden rounded-lg bg-gray-100 border border-gray-200 mb-4 group cursor-pointer flex justify-center items-center"
                                     >
                                         {isPdf(notice.imageUrl) ? (
                                             <PdfThumbnail url={notice.imageUrl} />
                                         ) : (
-                                            <img 
-                                                src={notice.imageUrl} 
-                                                alt={notice.title} 
-                                                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                                            <img
+                                                src={notice.imageUrl}
+                                                alt={notice.title}
+                                                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                                             />
                                         )}
                                         {/* Hover Overlay */}
@@ -204,7 +204,7 @@ export default function Body() {
                                     </div>
                                 )}
                                 <div className="flex justify-between items-start">
-                                    <h3 className="font-bold text-xs p-0" style={{fontSize:"18px", padding:"0px"}}>{notice.title}</h3>
+                                    <h3 className="font-bold text-xs p-0" style={{ fontSize: "18px", padding: "0px" }}>{notice.title}</h3>
                                     <span className="text-xs text-black bg-gray-100 rounded whitespace-nowrap">
                                         {new Date(notice.createdAt).toLocaleDateString()}
                                     </span>
@@ -216,21 +216,21 @@ export default function Body() {
                     <h3 data-aos="fade-up">News & Events</h3>
                     <div className="update-body">
                         {Data.map((event) => (
-                        <div key={event.id} data-aos="fade-up">
-                            <div className="update-card">
-                                <div className="media-card">
-                                    <img src={event.imageUrl} />
-                                    <div className="parag">
-                                        <h4><b>{event.title}</b></h4>
-                                        <p>{event.content}</p>
+                            <div key={event.id} data-aos="fade-up">
+                                <div className="update-card">
+                                    <div className="media-card">
+                                        <img src={event.imageUrl} />
+                                        <div className="parag">
+                                            <h4><b>{event.title}</b></h4>
+                                            <p>{event.content}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         ))}
                     </div>
                 </section>
             </main>
-        </>
+        </div >
     )
 }
