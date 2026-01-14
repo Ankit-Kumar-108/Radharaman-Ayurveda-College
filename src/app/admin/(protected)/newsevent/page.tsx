@@ -55,10 +55,10 @@ export default function NewsEventManagement() {
     }
 
     return (
-        <div className="space-y-6 flex flex-col justify-center items-center gap-12 bg-green-200">
+        <div className="space-y-6 flex flex-col justify-center items-center gap-12">
             <h1 className="text-3xl font-bold dark:text-black mt-12 ">News & Events Management</h1>
 
-            <div className="rounded-lg bg-white p-6 shadow-md  w-87 h-110">
+            <div className="rounded-lg bg-white p-6 shadow-md  w-87 min-h-105">
                 <h2 className="mb-4 text-xl font-semibold text-center">Create New Event</h2>
                 <form id="create-event-form" action={handleCreate} className="space-y-4">
                     <div>
@@ -80,25 +80,25 @@ export default function NewsEventManagement() {
             </div>
 
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-center pb-12">Existing Events</h2>
+                <h2 className="text-xl font-semibold text-center">Existing Events</h2>
                 {loading ? (
                     <p>Loading...</p>
                 ) : events.length === 0 ? (
                     <p className="text-gray-500">No events found.</p>
                 ) : (
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 p-6">
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
                         {events.map((event) => (
-                            <div key={event.id} className="rounded-lg bg-white p-4 shadow dark:bg-gray-800">
-                                <h3 className="font-bold dark:text-white">{event.title}</h3>
+                            <div key={event.id} className="rounded-lg bg-white p-4 shadow ">
+                                <h3 className="font-bold">{event.title}</h3>
                                 {event.imageUrl && (
-                                    <div className="mt-2 relative h-40 w-full overflow-hidden rounded bg-gray-100 dark:bg-gray-700">
+                                    <div className="mt-2 relative h-40 w-full overflow-hidden rounded bg-gray-100">
                                         <img src={event.imageUrl} alt={event.title} className="h-full w-full object-cover" />
                                     </div>
                                 )}
-                                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-3">{event.content}</p>
+                                <p className="mt-2 text-sm text-gray-600 line-clamp-3">{event.content}</p>
                                 <div className="mt-4 flex justify-between items-center">
                                     <span className="text-xs text-gray-500">{new Date(event.createdAt).toLocaleDateString()}</span>
-                                    <button onClick={() => handleDelete(event.id)} className="text-red-500 hover:text-red-700 text-sm">Delete</button>
+                                    <button onClick={() => handleDelete(event.id)} className="text-red-500 text-sm w-14 h-7 border rounded-md hover hover:bg-red-200 transition-all duration-200">Delete</button>
                                 </div>
                             </div>
                         ))}

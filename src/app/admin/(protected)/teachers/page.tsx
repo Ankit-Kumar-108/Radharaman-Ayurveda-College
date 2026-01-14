@@ -37,7 +37,7 @@ export default function TeachersPage() {
     }, [])
 
     return (
-        <div className="container mx-auto px-4 py-8 bg-[#d9efd0] flex flex-col justify-center items-center">
+        <div className="container mx-auto px-4 py-8 flex flex-col justify-center items-center gap-6">
 
         {isVisible?(
             <button className="w-56 h-12 rounded-lg text-white font-bold bg-green-500 hover:bg-green-600 transition-all duration-200" onClick={() =>(setIsVisible(false))}>
@@ -47,7 +47,7 @@ export default function TeachersPage() {
             <CreateTeacherPage OnClose={() => (setIsVisible(true))} />
         )}
 
-            <h1 className="text-3xl font-bold text-center mb-10 text-gray-800 mt-30">
+            <h1 className="text-3xl font-bold text-center text-gray-800 ">
                 Faculties
             </h1>
 
@@ -135,7 +135,7 @@ export default function TeachersPage() {
                                         <span className="font-medium">Joined:</span>
                                         <span>{teacher.createdAt.toDateString()}</span>
                                     </div>
-                                    <div className="relative left-60">
+                                    <div className="relative left-[50%]">
                                         <DeleteTeacherProfile id={teacher.id} />
                                     </div>
                                 </div>
