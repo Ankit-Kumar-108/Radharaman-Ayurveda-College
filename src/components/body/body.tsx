@@ -1,17 +1,36 @@
 import Aos from "aos"
 import "aos/dist/aos.css"
 import "../../app/landing.css"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { getNewsEvents } from "@/app/actions/NewsEventManagement/newsevent"
+
+interface NewsEvent {
+     id: number
+    title: string
+    content: string
+    imageUrl: string
+    createdAt: Date 
+}
 export default function Body() {
+    const [Data, setData] = useState<NewsEvent[]>([])
     useEffect(() => {
         Aos.init({
             duration: 800,
             once: true,
             offset: 50,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             easing: "cubic-bezier(0.68, -0.55, 0.27, 1.55)" as any,
         });
-    }, []);
+    }, []);                                                                                                                           
+    useEffect(() => {
+        const fetchData = async () => {
+            const events = await getNewsEvents()
+            if (events.success && events.data) {
+            setData(events.data)
+        }
+        }
+        fetchData()
+    }, [])       
+    
     return (
         <>
             <main>
@@ -119,57 +138,19 @@ export default function Body() {
                 <section className="update" id="Events">
                     <h3 data-aos="fade-up">News&Events</h3>
                     <div className="update-body">
-                        <div data-aos="fade-up">
+                        {Data.map((event) => (
+                        <div key={event.id} data-aos="fade-up">
                             <div className="update-card">
                                 <div className="media-card">
-                                    <img src="ASSETS/image/528649719_1213503050793366_9072583007387189483_n.jpg" alt="Students at World Breastfeeding Week 2025 event" />
+                                    <img src={event.imageUrl} />
                                     <div className="parag">
-                                        <h4>World Breastfeeding Week 2025</h4>
-                                        <p>On the occasion of World Breastfeeding Week 2025, Radharaman Institute of Nursing,
-                                            Bhopal&apos;s B.Sc. Nursing and GNM</p>
+                                        <h4><b>{event.title}</b></h4>
+                                        <p>{event.content}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div data-aos="fade-up">
-                            <div className="update-card">
-                                <div className="media-card">
-                                    <img src="ASSETS/image/rj-green.jpg" alt="Tree plantation programme with MY FM's RJ Geet" />
-                                    <div className="parag">
-                                        <h4>
-                                            Tree plantation programme
-                                        </h4>
-                                        <p>Tree plantation programme concluded at Radharaman Ayurveda College campus, MY FM&apos;s RJ
-                                            Geet
-                                            was present.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-up">
-                            <div className="update-card">
-                                <div className="media-card">
-                                    <img src="ASSETS/image/pcod.jpg" alt="PCOD talk show for students" />
-                                    <div className="parag">
-                                        <h4>Talk Show</h4>
-                                        <p>Radharaman Ayurvedic College organised a PCOD talk show where students learnt about the
-                                            causes, symptom and treatment.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-up">
-                            <div className="update-card">
-                                <div className="media-card">
-                                    <img src="ASSETS/image/competation.jpg" alt="Inter-state Dance Competition at Radharaman" />
-                                    <div className="parag">
-                                        <h4>Inter-state Dance Competation</h4>
-                                        <p>A wonderful confluence of culture and art at the Radharaman Interstate Dance Competition!
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </section>
             </main>

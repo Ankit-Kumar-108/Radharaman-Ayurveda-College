@@ -1,4 +1,5 @@
 "use client"
+import "../../app/landing.css"
 export default function Footer() {
 
     return (

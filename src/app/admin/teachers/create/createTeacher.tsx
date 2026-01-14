@@ -1,9 +1,17 @@
 import { CreateTeacher } from "@/app/actions/TeacherManagement/createTeacher"
 
-export default function CreateTeacherPage() {
+type prop = {
+  OnClose: () => void
+}
+export default function CreateTeacherPage({OnClose}: prop) {
   return (
     <div className="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg border border-gray-200">
+      <div className=" flex justify-between">
       <h1 className="text-3xl font-bold mb-8 text-gray-800">Register New Teacher</h1>
+      <button className="h-9 w-20 bg-red-500 hover:bg-red-600 transition-all duration-200 rounded-lg text-white" onClick={OnClose}>
+       Close
+      </button>
+      </div>
 
       <form action={CreateTeacher} className="grid grid-cols-1 md:grid-cols-2 gap-6">
         

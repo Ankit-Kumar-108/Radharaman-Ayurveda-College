@@ -10,7 +10,7 @@ interface NewsEvent {
     title: string
     content: string
     imageUrl: string
-    createdAt: Date
+    createdAt: Date 
 }
 
 export default function NewsEventManagement() {
@@ -33,7 +33,7 @@ export default function NewsEventManagement() {
 
     async function handleCreate(formData: FormData) {
         setIsCreating(true)
-        const result = await createNewsEvent(formData)
+        const result = await createNewsEvent(formData) 
         if (result.success) {
             fetchEvents()
             const form = document.getElementById('create-event-form') as HTMLFormElement
@@ -55,38 +55,38 @@ export default function NewsEventManagement() {
     }
 
     return (
-        <div className="space-y-6">
-            <h1 className="text-3xl font-bold dark:text-white">News & Events Management</h1>
+        <div className="space-y-6 flex flex-col justify-center items-center gap-12 bg-green-200">
+            <h1 className="text-3xl font-bold dark:text-black mt-12 ">News & Events Management</h1>
 
-            <div className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
-                <h2 className="mb-4 text-xl font-semibold dark:text-white">Create New Event</h2>
+            <div className="rounded-lg bg-white p-6 shadow-md  w-87 h-110">
+                <h2 className="mb-4 text-xl font-semibold text-center">Create New Event</h2>
                 <form id="create-event-form" action={handleCreate} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
-                        <input name="title" type="text" required className="mt-1 block w-full rounded-md border border-gray-300 p-2 dark:bg-gray-700 dark:text-white" />
+                        <label className="block text-sm font-medium">Title</label>
+                        <input name="title" type="text" required className="mt-1 block w-full rounded-md border border-gray-300 p-2" />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Content</label>
-                        <textarea name="content" required className="mt-1 block w-full rounded-md border border-gray-300 p-2 dark:bg-gray-700 dark:text-white" rows={3}></textarea>
+                        <label className="block text-sm font-medium">Content</label>
+                        <textarea name="content" required className="mt-1 block w-full rounded-md border border-gray-300 p-2" rows={3}></textarea>
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Image URL</label>
-                        <input name="imageUrl" type="url" required className="mt-1 block w-full rounded-md border border-gray-300 p-2 dark:bg-gray-700 dark:text-white" />
+                        <label className="block text-sm font-medium mb-1">News&Event Photo</label>
+                        <input type="file" name="photo" accept="image/*" required className="w-full border p-2 rounded bg-gray-50" />
                     </div>
-                    <button type="submit" disabled={isCreating} className="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 disabled:opacity-50">
+                    <button type="submit" disabled={isCreating} className="rounded-md bg-indigo-600 px-4 py-2  hover:bg-indigo-700 disabled:opacity-50 text-white">
                         {isCreating ? 'Creating...' : 'Post Event'}
                     </button>
                 </form>
             </div>
 
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold dark:text-white">Existing Events</h2>
+                <h2 className="text-xl font-semibold text-center pb-12">Existing Events</h2>
                 {loading ? (
                     <p>Loading...</p>
                 ) : events.length === 0 ? (
                     <p className="text-gray-500">No events found.</p>
                 ) : (
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 p-6">
                         {events.map((event) => (
                             <div key={event.id} className="rounded-lg bg-white p-4 shadow dark:bg-gray-800">
                                 <h3 className="font-bold dark:text-white">{event.title}</h3>

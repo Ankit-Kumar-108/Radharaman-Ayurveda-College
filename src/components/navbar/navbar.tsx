@@ -1,5 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import "../../app/landing.css"
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,18 +19,20 @@ export default function Navbar() {
         <>
             <header>
                 <nav>
-                    <div className="header">
+                    <Link href="/">
+                    <div className="header cursor-pointer">
                         <img src="/ASSETS/logo.png" alt="Radharaman College Logo" />
                     </div>
+                    </Link>
                     <div className="links">
                         <a className="w-20" href="#About">About
 
                         </a>
                         <a className="w-22.5" href="#College">College</a>
-                        <a className="w-25" href="#Hospital">Hospital</a>
+                        <a className="w-25" href="/admin/students">Hospital</a>
                         <a className="w-21.25" href="/faculty">Faculty</a>
-                        <a className="w-20" href="#Detail">Detail</a>
-                        <a className="w-20" href="#Events">Event</a>
+                        <a className="w-20" href="/notice">Notice</a>
+                        <a className="w-20" href="/newsEvent">Event</a>
                         <a className="w-27.5" href="#Contact Us">Contact Us</a>
                         <button>LOGIN</button>
                     </div>

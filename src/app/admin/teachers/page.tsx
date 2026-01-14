@@ -1,15 +1,51 @@
-
+"use client"
 import { GetTeacher } from "@/app/actions/TeacherManagement/teacher";
 import Image from "next/image";
 import CreateTeacherPage from "./create/createTeacher";
 import DeleteTeacherProfile from "./delete/deleteTeacherProfile";
+import { useState, useEffect } from "react";
 
-export default async function TeachersPage() {
-    const teachers = await GetTeacher() || []
+type Teachers = {
+  id: number
+  email: string
+  fullName: string
+  createdAt: Date
+  dateOfBirth: Date
+  mobileNo: string
+  whatsappNo: string | null
+  gender: string
+  localAddress: string
+  permanentAddress: string
+  fatherName: string
+  motherName: string
+  highestQualification: string
+  experience: string
+  photo: string
+  aadharNo : string
+
+}
+export default function TeachersPage() {
+    const [isVisible, setIsVisible] = useState(true)
+    const [teachers, setTeachers] = useState<Teachers[]>([])
+
+    useEffect(() => {
+        const FetchTeacher = async() =>{
+            const Data = await GetTeacher()
+            setTeachers(Data || [])
+        }
+        FetchTeacher()
+    }, [])
+
     return (
-        <div className="container mx-auto px-4 py-8 bg-[#d9efd0]">
+        <div className="container mx-auto px-4 py-8 bg-[#d9efd0] flex flex-col justify-center items-center">
 
-            <CreateTeacherPage />
+        {isVisible?(
+            <button className="w-56 h-12 rounded-lg text-white font-bold bg-green-500 hover:bg-green-600 transition-all duration-200" onClick={() =>(setIsVisible(false))}>
+                Create New Teacher Profile
+            </button>
+        ):(
+            <CreateTeacherPage OnClose={() => (setIsVisible(true))} />
+        )}
 
             <h1 className="text-3xl font-bold text-center mb-10 text-gray-800 mt-30">
                 Faculties
